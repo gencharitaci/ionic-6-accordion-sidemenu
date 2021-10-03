@@ -1,0 +1,47 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-content>
+        
+        <ion-item lines="none">
+          <ion-img style="padding: 24px;" src="../assets/logo/ionic.png"></ion-img>
+        </ion-item>
+
+        <!-- Accordion menu -->
+        <ion-accordion-group value="mailbox">
+          <ion-accordion value="mailbox" toggle-icon="arrow-down-circle">
+            <ion-item slot="header">
+              <ion-label>Mailbox</ion-label>
+            </ion-item>
+
+            <ion-list id="inbox-list" slot="content" >
+              <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+                <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false"
+                routerLinkActive="selected">
+                <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+                <ion-label>{{ p.title }}</ion-label>
+              </ion-item>
+              </ion-menu-toggle>
+            </ion-list>
+          </ion-accordion>
+
+          <ion-accordion value="labels" toggle-icon="arrow-down-circle">
+            <ion-item slot="header">
+              <ion-label>Labels</ion-label>
+            </ion-item>
+
+            <ion-list slot="content">
+              <ion-item *ngFor="let label of labels" lines="none">
+                <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
+                <ion-label>{{ label }}</ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-accordion>
+        </ion-accordion-group>
+
+
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

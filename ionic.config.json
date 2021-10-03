@@ -1,0 +1,7 @@
+{
+  "name": "ionic-6-accordion-sidemenu",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
